@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Riya 🎂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=Noto+Sans+Bengali&family=Noto+Sans+Tamil&family=Noto+Sans+Telugu&family=Noto+Sans+Kannada&family=Noto+Sans+Malayalam&family=Noto+Sans+Oriya&family=Noto+Sans+Gujarati&family=Noto+Sans+KR&family=Noto+Sans+SC&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FDF2F6;
+    --panel:#FBE1EC;
+    --panel-2:#F6CDE0;
+    --ink:#4A2338;
+    --ink-soft:#8C5C74;
+    --rose:#E58BAA;
+    --rose-deep:#C85D85;
+    --berry:#B8456D;
+    --line: rgba(74,35,56,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  img{ max-width:100%; display:block; }
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+
+  .glow{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(55% 40% at 50% 8%, rgba(229,139,170,0.20), transparent 60%),
+      radial-gradient(45% 35% at 90% 75%, rgba(184,69,109,0.10), transparent 60%),
+      var(--cream);
+  }
+  .motes{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;}
+  .mote{
+    position:absolute; bottom:-10px; border-radius:50%;
+    background: var(--rose);
+    opacity:0.4; filter:blur(0.3px);
+    animation: rise linear infinite;
+  }
+  @keyframes rise{
+    0%{ transform: translateY(0) translateX(0); opacity:0; }
+    10%{ opacity:0.5; }
+    90%{ opacity:0.28; }
+    100%{ transform: translateY(-110vh) translateX(var(--drift,20px)); opacity:0; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; z-index:1;
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:110px 24px 70px;
+  }
+  .lead-in{
+    font-size:0.98rem;
+    color: var(--ink-soft);
+    margin-bottom:20px;
+    opacity:0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+  .name-stage{
+    min-height:8.5rem;
+    display:flex; align-items:center; justify-content:center;
+    opacity:0;
+    animation: fadeUp 0.9s ease forwards 0.5s;
+  }
+  .type-name{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:560;
+    font-size:clamp(2.6rem, 10vw, 6rem);
+    color: var(--berry);
+    white-space:nowrap;
+    border-right: 2px solid var(--rose);
+    padding-right:10px;
+  }
+  .hero-msg{
+    max-width:540px;
+    margin-top:36px;
+    font-size:1.08rem;
+    color: var(--ink);
+    opacity:0;
+    animation: fadeUp 0.9s ease forwards 0.9s;
+  }
+  .hero-msg em{
+    font-style:normal;
+    color: var(--berry);
+    font-family:'Fraunces', serif;
+  }
+  .hero-sub{
+    max-width:480px;
+    margin-top:14px;
+    font-size:0.98rem;
+    color: var(--ink-soft);
+    opacity:0;
+    animation: fadeUp 0.9s ease forwards 1.05s;
+  }
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+  .scroll-cue{
+    position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+    font-size:0.75rem; color:var(--ink-soft); letter-spacing:0.06em;
+    opacity:0.8;
+  }
+  .scroll-cue span{
+    display:block; width:1px; height:24px; background:var(--ink-soft); margin:8px auto 0;
+    animation: pulseLine 2.2s ease-in-out infinite;
+  }
+  @keyframes pulseLine{
+    0%,100%{ opacity:0.25; }
+    50%{ opacity:0.85; }
+  }
+
+  section{ position:relative; z-index:1; }
+  .section-pad{ padding:100px 24px; }
+  .section-head{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(1.7rem, 3.4vw, 2.4rem);
+    max-width:640px;
+    margin-bottom:18px;
+    color:var(--ink);
+  }
+  .section-sub{
+    max-width:580px;
+    color:var(--ink-soft);
+    font-size:1rem;
+    margin-bottom:52px;
+  }
+
+  /* ---------- Gallery / collage ---------- */
+  .gallery{
+    background: var(--panel);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .collage{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:22px;
+    align-items:start;
+    margin-top:20px;
+  }
+  .frame{
+    position:relative;
+    background: var(--cream);
+    padding:14px 14px 46px;
+    border-radius:2px;
+    box-shadow: 0 18px 34px rgba(74,35,56,0.16);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .frame:hover{ transform: translateY(-6px) rotate(0deg) !important; box-shadow: 0 22px 40px rgba(74,35,56,0.22); }
+  .frame img{ width:100%; height:auto; border-radius:1px; }
+  .frame figcaption{
+    position:absolute; bottom:12px; left:0; right:0; text-align:center;
+    font-family:'Fraunces', serif; font-style:italic; color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+  .frame.tilt-l{ transform: rotate(-3.5deg); }
+  .frame.tilt-r{ transform: rotate(3deg); }
+  .frame.tilt-n{ transform: rotate(-0.5deg); margin-top:26px; }
+
+  @media (max-width:760px){
+    .collage{ grid-template-columns: 1fr; max-width:340px; margin-left:auto; margin-right:auto; gap:26px; }
+    .frame.tilt-l, .frame.tilt-r, .frame.tilt-n{ transform: rotate(0deg); margin-top:0; }
+  }
+
+  /* ---------- Many voices mosaic ---------- */
+  .mosaic{
+    display:flex; flex-wrap:wrap;
+    gap:14px 22px;
+    align-items:baseline;
+  }
+  .mosaic-item{ display:inline-flex; flex-direction:column; align-items:flex-start; gap:4px; }
+  .mosaic-script{
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    line-height:1.15;
+    transition: color 0.35s ease;
+  }
+  .mosaic-item:hover .mosaic-script{ color: var(--rose-deep); }
+  .mosaic-lang{ font-size:0.72rem; color: var(--ink-soft); }
+  .s1{ font-size:2.5rem; } .s2{ font-size:2.05rem; } .s3{ font-size:1.75rem; }
+
+  .fnt-bn{ font-family:'Noto Sans Bengali', 'Fraunces', serif; }
+  .fnt-ta{ font-family:'Noto Sans Tamil', 'Fraunces', serif; }
+  .fnt-te{ font-family:'Noto Sans Telugu', 'Fraunces', serif; }
+  .fnt-kn{ font-family:'Noto Sans Kannada', 'Fraunces', serif; }
+  .fnt-ml{ font-family:'Noto Sans Malayalam', 'Fraunces', serif; }
+  .fnt-or{ font-family:'Noto Sans Oriya', 'Fraunces', serif; }
+  .fnt-gu{ font-family:'Noto Sans Gujarati', 'Fraunces', serif; }
+  .fnt-kr{ font-family:'Noto Sans KR', 'Fraunces', serif; }
+  .fnt-sc{ font-family:'Noto Sans SC', 'Fraunces', serif; }
+  .fnt-jp{ font-family:'Noto Sans JP', 'Fraunces', serif; }
+  .fnt-en{ font-family:'Fraunces', serif; }
+
+  /* ---------- Letter ---------- */
+  .letter-inner{ max-width:640px; margin:0 auto; position:relative; }
+  .dropcap{
+    float:left;
+    font-family:'Fraunces', serif;
+    font-size:4.4rem;
+    line-height:0.8;
+    padding-right:14px; padding-top:6px;
+    color: var(--berry);
+  }
+  .letter p{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    color: var(--ink);
+    margin-bottom:18px;
+  }
+  .signature{
+    display:block; margin-top:28px;
+    font-family:'Fraunces', serif; font-style:italic;
+    color: var(--berry); font-size:1.2rem; clear:both;
+  }
+
+  /* ---------- Wish / candle ---------- */
+  .wish{ text-align:center; }
+  .candle-wrap{ display:flex; flex-direction:column; align-items:center; gap:26px; }
+  .candle-btn{ background:none; border:none; cursor:pointer; padding:0; }
+  .candle-svg{ width:60px; height:104px; display:block; }
+  .flame{ transform-origin:50% 100%; animation: flicker 1.6s ease-in-out infinite; }
+  @keyframes flicker{
+    0%,100%{ transform: scaleY(1) rotate(0deg); }
+    50%{ transform: scaleY(1.08) rotate(-2deg); }
+  }
+  .candle-btn.blown .flame{ display:none; }
+  .candle-btn.blown .smoke{ display:block; }
+  .smoke{ display:none; animation: smokeUp 1.6s ease-out forwards; }
+  @keyframes smokeUp{
+    0%{ opacity:0.5; transform:translateY(0) scale(1);}
+    100%{ opacity:0; transform:translateY(-26px) scale(1.6);}
+  }
+  .candle-hint{ font-size:0.85rem; color:var(--ink-soft); }
+  .burst{ position:fixed; inset:0; pointer-events:none; z-index:5; }
+  .burst i{ position:absolute; width:6px; height:6px; border-radius:50%; background: var(--rose-deep); opacity:0; }
+  .made-wish{
+    margin-top:8px; font-family:'Fraunces', serif; font-size:1.2rem;
+    color: var(--berry); opacity:0; transition: opacity 0.6s ease; max-width:420px;
+  }
+  .made-wish.show{ opacity:1; }
+
+  footer{
+    text-align:center; padding:56px 24px 64px; color: var(--ink-soft); font-size:0.85rem;
+    border-top:1px solid var(--line);
+  }
+  footer .fname{
+    display:block; font-family:'Fraunces', serif; color: var(--berry); font-size:1.1rem; margin-bottom:8px;
+  }
+
+  @media (max-width:560px){
+    .type-name{ font-size:clamp(2rem, 12vw, 3.2rem); }
+    .section-pad{ padding:70px 20px; }
+    .dropcap{ font-size:3.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="motes" id="motes"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="lead-in">to my favourite person in the whole world 🎀</p>
+  <div class="name-stage">
+    <span class="type-name fnt-en" id="typeName"></span>
+  </div>
+  <p class="hero-msg">Happy birthday, <em>Riya</em> 🎂 my partner in crime, my built-in therapist, and the loudest laugh in every group photo 💕</p>
+  <p class="hero-sub">Here's a whole little website just for you, because you deserve way more than a text message today ✨</p>
+  <div class="scroll-cue">scroll<span></span></div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery section-pad">
+  <div class="wrap">
+    <h2 class="section-head">A few of my favourite you's 📸</h2>
+    <p class="section-sub">Sunflower afternoons, dressed-up nights, and that one hilltop where you almost dropped your sunglasses off the roof — every version of you is my favourite version.</p>
+    <div class="collage">
+      <figure class="frame tilt-l">
+        <img src="riya-1.png" alt="Riya smiling among sunflowers and roses">
+        <figcaption>golden hour, but make it iconic 🌻</figcaption>
+      </figure>
+      <figure class="frame tilt-n">
+        <img src="riya-2.png" alt="Riya at a rooftop dinner at night">
+        <figcaption>main character energy at night ✨</figcaption>
+      </figure>
+      <figure class="frame tilt-r">
+        <img src="riya-3.png" alt="Riya overlooking a hillside city">
+        <figcaption>chasing views (and good selfies) 🏙️</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- MANY VOICES -->
+<section class="section-pad">
+  <div class="wrap">
+    <h2 class="section-head">Your name, in every language I could find 🌍</h2>
+    <p class="section-sub">Because "Riya" deserves to be said beautifully, in every script and every accent, all over the world — not just by me, at 2am, mid-rant about literally nothing.</p>
+    <div class="mosaic">
+      <div class="mosaic-item"><span class="mosaic-script s1 fnt-en">Riya</span><span class="mosaic-lang">English</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s2 fnt-bn">রিয়া</span><span class="mosaic-lang">Bengali</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s1 fnt-ta">ரியா</span><span class="mosaic-lang">Tamil</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s3 fnt-te">రియా</span><span class="mosaic-lang">Telugu</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s2 fnt-kn">ರಿಯಾ</span><span class="mosaic-lang">Kannada</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s1 fnt-ml">റിയ</span><span class="mosaic-lang">Malayalam</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s3 fnt-or">ରିୟା</span><span class="mosaic-lang">Odia</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s2 fnt-gu">રિયા</span><span class="mosaic-lang">Gujarati</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s1 fnt-kr">리야</span><span class="mosaic-lang">Korean</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s3 fnt-sc">丽雅</span><span class="mosaic-lang">Mandarin</span></div>
+      <div class="mosaic-item"><span class="mosaic-script s2 fnt-jp">リヤ</span><span class="mosaic-lang">Japanese</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter section-pad" style="background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap letter-inner">
+    <span class="dropcap">T</span>
+    <p>o the girl who has seen me at my absolute worst and loved me anyway — happy birthday 💗 I don't think I've ever properly told you how much lighter you make everything feel. The bad days are shorter with you in them, and the good days are somehow even better.</p>
+    <p>You've got this rare thing where you make people feel like the most interesting person in the room, when really, that's just you. So today, I hope the universe returns even a fraction of everything you give out so freely — the inside jokes, the 1am phone calls, the "come over, I made snacks" texts, all of it.</p>
+    <p>Here's to another year of us being unstoppable, slightly unhinged, and completely inseparable 🤍 I love you more than words (and this whole website, and I clearly tried very hard on this website).</p>
+    <span class="signature">Happy birthday, my favourite person. 🎉</span>
+  </div>
+</section>
+
+<!-- WISH / CANDLE -->
+<section class="section-pad wish">
+  <div class="wrap candle-wrap">
+    <h2 class="section-head" style="margin:0 auto;">Make a wish 🕯️</h2>
+    <button class="candle-btn" id="candleBtn" aria-label="Blow out the candle to make a wish">
+      <svg class="candle-svg" viewBox="0 0 64 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="24" y="40" width="16" height="60" rx="3" fill="#E58BAA"/>
+        <rect x="24" y="40" width="16" height="60" rx="3" fill="url(#stripe)" opacity="0.5"/>
+        <rect x="30" y="26" width="4" height="16" fill="#8a5568"/>
+        <g class="flame">
+          <path d="M32 0C32 0 20 16 20 26C20 33.2 25.4 39 32 39C38.6 39 44 33.2 44 26C44 16 32 0 32 0Z" fill="#C85D85"/>
+          <path d="M32 10C32 10 26 19 26 25C26 29 28.7 32 32 32C35.3 32 38 29 38 25C38 19 32 10 32 10Z" fill="#FDF2F6"/>
+        </g>
+        <g class="smoke">
+          <path d="M32 24C32 24 28 18 32 12C36 6 32 0 32 0" stroke="#8C5C74" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </g>
+        <defs>
+          <linearGradient id="stripe" x1="24" y1="40" x2="40" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#E58BAA"/>
+            <stop offset="1" stop-color="#F3B9CF"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </button>
+    <p class="candle-hint" id="candleHint">tap the flame, make it count ✨</p>
+    <p class="made-wish" id="madeWish">Whatever you wished for — I hope it's already on its way to you 💫 and if it's not, you know I'll help you chase it down 😘</p>
+  </div>
+</section>
+
+<div class="burst" id="burst"></div>
+
+<footer>
+  <span class="fname">Riya 🩷</span>
+  made by your person, for the day that made everything else possible.
+</footer>
+
+<script>
+  // ---------- Floating motes ----------
+  const motesEl = document.getElementById('motes');
+  const MOTE_COUNT = 18;
+  for(let i=0;i<MOTE_COUNT;i++){
+    const m = document.createElement('div');
+    m.className='mote';
+    const size = 2 + Math.random()*3;
+    m.style.width = size+'px';
+    m.style.height = size+'px';
+    m.style.left = Math.random()*100+'%';
+    m.style.setProperty('--drift', (Math.random()*60-30)+'px');
+    m.style.animationDuration = (10 + Math.random()*10)+'s';
+    m.style.animationDelay = (Math.random()*12)+'s';
+    motesEl.appendChild(m);
+  }
+
+  // ---------- Typewriter (no language caption) ----------
+  const names = [
+    { text:"Riya", cls:"fnt-en" },
+    { text:"রিয়া", cls:"fnt-bn" },
+    { text:"ரியா", cls:"fnt-ta" },
+    { text:"రియా", cls:"fnt-te" },
+    { text:"ರಿಯಾ", cls:"fnt-kn" },
+    { text:"റിയ", cls:"fnt-ml" },
+    { text:"ରିୟା", cls:"fnt-or" },
+    { text:"રિયા", cls:"fnt-gu" },
+    { text:"리야", cls:"fnt-kr" },
+    { text:"丽雅", cls:"fnt-sc" },
+    { text:"リヤ", cls:"fnt-jp" },
+  ];
+
+  const typeEl = document.getElementById('typeName');
+  let idx = 0;
+
+  function setFont(cls){ typeEl.className = 'type-name ' + cls; }
+
+  async function typeText(str){
+    for(let i=0;i<=str.length;i++){ typeEl.textContent = str.slice(0,i); await sleep(85); }
+  }
+  async function deleteText(str){
+    for(let i=str.length;i>=0;i--){ typeEl.textContent = str.slice(0,i); await sleep(45); }
+  }
+  function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+
+  async function cycle(){
+    while(true){
+      const entry = names[idx % names.length];
+      setFont(entry.cls);
+      await typeText(entry.text);
+      await sleep(1100);
+      await deleteText(entry.text);
+      await sleep(200);
+      idx++;
+    }
+  }
+  cycle();
+
+  // ---------- Candle wish ----------
+  const candleBtn = document.getElementById('candleBtn');
+  const candleHint = document.getElementById('candleHint');
+  const madeWish = document.getElementById('madeWish');
+  const burst = document.getElementById('burst');
+  let blown = false;
+
+  candleBtn.addEventListener('click', () => {
+    if(blown) return;
+    blown = true;
+    candleBtn.classList.add('blown');
+    candleHint.textContent = 'wish sent into the universe 🌙';
+    madeWish.classList.add('show');
+    fireBurst();
+  });
+
+  function fireBurst(){
+    const rect = candleBtn.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top;
+    for(let i=0;i<28;i++){
+      const p = document.createElement('i');
+      const angle = Math.random()*Math.PI*2;
+      const dist = 60 + Math.random()*120;
+      const dx = Math.cos(angle)*dist;
+      const dy = Math.sin(angle)*dist - 40;
+      p.style.left = cx+'px';
+      p.style.top = cy+'px';
+      p.style.transform = `translate(0,0)`;
+      p.style.transition = 'none';
+      burst.appendChild(p);
+      requestAnimationFrame(()=>{
+        p.style.transition = 'transform 1.1s cubic-bezier(.2,.7,.3,1), opacity 1.1s ease-out';
+        p.style.transform = `translate(${dx}px, ${dy}px)`;
+        p.style.opacity = '1';
+      });
+      setTimeout(()=>{ p.style.opacity='0'; }, 700);
+      setTimeout(()=>{ p.remove(); }, 1300);
+    }
+  }
+</script>
+
+</body>
+</html>
